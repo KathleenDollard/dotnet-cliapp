@@ -1,0 +1,15 @@
+C:\Users\kdollard\source\repos\dotnet-cliapp\dotnet-cliapp\src\JsonRender\bin\Debug\net5.0\JsonRender.deps.json
+C:\Users\kdollard\source\repos\dotnet-cliapp\dotnet-cliapp\src\JsonRender\bin\Debug\net5.0\JsonRender.dll
+C:\Users\kdollard\source\repos\dotnet-cliapp\dotnet-cliapp\src\JsonRender\bin\Debug\net5.0\ref\JsonRender.dll
+C:\Users\kdollard\source\repos\dotnet-cliapp\dotnet-cliapp\src\JsonRender\bin\Debug\net5.0\JsonRender.pdb
+C:\Users\kdollard\source\repos\dotnet-cliapp\dotnet-cliapp\src\JsonRender\bin\Debug\net5.0\Common.dll
+C:\Users\kdollard\source\repos\dotnet-cliapp\dotnet-cliapp\src\JsonRender\bin\Debug\net5.0\Common.pdb
+C:\Users\kdollard\source\repos\dotnet-cliapp\dotnet-cliapp\src\JsonRender\obj\Debug\net5.0\JsonRender.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\kdollard\source\repos\dotnet-cliapp\dotnet-cliapp\src\JsonRender\obj\Debug\net5.0\JsonRender.AssemblyInfoInputs.cache
+C:\Users\kdollard\source\repos\dotnet-cliapp\dotnet-cliapp\src\JsonRender\obj\Debug\net5.0\JsonRender.AssemblyInfo.cs
+C:\Users\kdollard\source\repos\dotnet-cliapp\dotnet-cliapp\src\JsonRender\obj\Debug\net5.0\JsonRender.csproj.CoreCompileInputs.cache
+C:\Users\kdollard\source\repos\dotnet-cliapp\dotnet-cliapp\src\JsonRender\obj\Debug\net5.0\JsonRender.csproj.CopyComplete
+C:\Users\kdollard\source\repos\dotnet-cliapp\dotnet-cliapp\src\JsonRender\obj\Debug\net5.0\JsonRender.dll
+C:\Users\kdollard\source\repos\dotnet-cliapp\dotnet-cliapp\src\JsonRender\obj\Debug\net5.0\ref\JsonRender.dll
+C:\Users\kdollard\source\repos\dotnet-cliapp\dotnet-cliapp\src\JsonRender\obj\Debug\net5.0\JsonRender.pdb
+C:\Users\kdollard\source\repos\dotnet-cliapp\dotnet-cliapp\src\JsonRender\obj\Debug\net5.0\JsonRender.csproj.AssemblyReference.cache
