@@ -53,7 +53,7 @@
           "dependencies": {
             "CodeRapid.StarFruit": {
               "target": "Package",
-              "version": "[0.0.1-beta0001E, )"
+              "version": "[0.0.1-beta0001F, )"
             },
             "System.CommandLine": {
               "target": "Package",
@@ -132,7 +132,7 @@
           "dependencies": {
             "CodeRapid.StarFruit": {
               "target": "Package",
-              "version": "[0.0.1-beta0001E, )"
+              "version": "[0.0.1-beta0001F, )"
             },
             "Spectre.Console": {
               "target": "Package",

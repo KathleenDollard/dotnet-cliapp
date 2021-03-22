@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "eOLcDSO1tTGkqTMCb97MBm48NZRQnRoC9fdOi4N5UdJR8H7YrkhZ2ctUHQUpSZYO/g9u3G60a65Ffj2EKBw5xw==",
+  "dgSpecHash": "F844DT8k4QNyOGUmRxhe24vNc92VtA6hhkVlEKJYvn2jUqC0+wUa4aThq0/UY5rYuUE5kJDjjeS5wA1NKZPB8Q==",
   "success": true,
   "projectFilePath": "C:\\Users\\kdollard\\source\\repos\\dotnet-cliapp\\dotnet-cliapp\\src\\CliSupport\\CliSupport.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\kdollard\\.nuget\\packages\\coderapid.starfruit\\0.0.1-beta0001e\\coderapid.starfruit.0.0.1-beta0001e.nupkg.sha512",
+    "C:\\Users\\kdollard\\.nuget\\packages\\coderapid.starfruit\\0.0.1-beta0001f\\coderapid.starfruit.0.0.1-beta0001f.nupkg.sha512",
     "C:\\Users\\kdollard\\.nuget\\packages\\coderapid.starfruit.common\\0.0.1-beta0001a\\coderapid.starfruit.common.0.0.1-beta0001a.nupkg.sha512",
     "C:\\Users\\kdollard\\.nuget\\packages\\humanizer.core\\2.2.0\\humanizer.core.2.2.0.nupkg.sha512",
     "C:\\Users\\kdollard\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",

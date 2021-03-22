@@ -2,7 +2,7 @@
   "version": 3,
   "targets": {
     "net5.0": {
-      "CodeRapid.StarFruit/0.0.1-beta0001E": {
+      "CodeRapid.StarFruit/0.0.1-beta0001F": {
         "type": "package",
         "dependencies": {
           "CodeRapid.StarFruit.Common": "0.0.1-beta0001A",
@@ -1687,7 +1687,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
-          "CodeRapid.StarFruit": "0.0.1-beta0001E",
+          "CodeRapid.StarFruit": "0.0.1-beta0001F",
           "Common": "1.0.0",
           "JsonRender": "1.0.0",
           "System.CommandLine": "2.0.0-beta1.20574.7",
@@ -1704,7 +1704,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
-          "CodeRapid.StarFruit": "0.0.1-beta0001E",
+          "CodeRapid.StarFruit": "0.0.1-beta0001F",
           "System.CommandLine": "2.0.0-beta1.20574.7"
         },
         "compile": {
@@ -1718,7 +1718,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
-          "CodeRapid.StarFruit": "0.0.1-beta0001E",
+          "CodeRapid.StarFruit": "0.0.1-beta0001F",
           "Common": "1.0.0",
           "System.CommandLine": "2.0.0-beta1.20574.7"
         },
@@ -1733,7 +1733,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
-          "CodeRapid.StarFruit": "0.0.1-beta0001E",
+          "CodeRapid.StarFruit": "0.0.1-beta0001F",
           "Common": "1.0.0",
           "Spectre.Console": "0.38.0",
           "System.CommandLine": "2.0.0-beta1.20574.7"
@@ -1748,13 +1748,13 @@
     }
   },
   "libraries": {
-    "CodeRapid.StarFruit/0.0.1-beta0001E": {
-      "sha512": "K3oUXGY6VNXQsLGhgrRjEBG1/RMe1m9igEgNcvlRoeeyXV8PHmLUWfiDSEIEF8Fv8rZqXq8b8ZtlzYggyesGfg==",
+    "CodeRapid.StarFruit/0.0.1-beta0001F": {
+      "sha512": "+qMS3t69xKLs/OqmOynm9rxP8zNgLQWoxtvpwE7RzP/BAaKrfnocDzNYHX7UP6Qu7v6XxQizseGy+g0TaDxaAA==",
       "type": "package",
-      "path": "coderapid.starfruit/0.0.1-beta0001e",
+      "path": "coderapid.starfruit/0.0.1-beta0001f",
       "files": [
         ".nupkg.metadata",
-        "coderapid.starfruit.0.0.1-beta0001e.nupkg.sha512",
+        "coderapid.starfruit.0.0.1-beta0001f.nupkg.sha512",
         "coderapid.starfruit.nuspec",
         "lib/netstandard2.0/StarFruit2.dll"
       ]
@@ -5705,7 +5705,7 @@
   "projectFileDependencyGroups": {
     "net5.0": [
       "CliSupport >= 1.0.0",
-      "CodeRapid.StarFruit >= 0.0.1-beta0001E",
+      "CodeRapid.StarFruit >= 0.0.1-beta0001F",
       "System.CommandLine >= 2.0.0-beta1.20574.7"
     ]
   },
@@ -5768,7 +5768,7 @@
         "dependencies": {
           "CodeRapid.StarFruit": {
             "target": "Package",
-            "version": "[0.0.1-beta0001E, )"
+            "version": "[0.0.1-beta0001F, )"
           },
           "System.CommandLine": {
             "target": "Package",

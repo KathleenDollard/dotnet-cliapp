@@ -183,7 +183,7 @@ namespace Common
             : base(name, description, aliases) { }
 
         public bool CanExecute { get; set; }
-        public string[] ParentCommandNames { get; set; }
+        public IEnumerable<string> ParentCommandNames { get; set; }
 
         public HelpOptions Options { get; } = new();
 

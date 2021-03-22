@@ -8,26 +8,31 @@ using System.Linq;
 
 namespace DotnetCli
 {
+    [Description("Run or manage templates")]
     public class NewCommand : DotnetCommand
     {
         [Description("The name for the output being created. If no name is specified, the name of the output directory is used.")]
-        public bool Name { get; set; }
+        public string? Name { get; set; }
 
         [Description("Location to place the generated output.")]
-        public bool Output { get; set; }
+        public string? Output { get; set; }
         [Description("Displays a summary of what would happen if the given command line were run if it would result in a template creation.")]
         public bool DryRun { get; set; }
         [Description("Forces content to be generated even if it would change existing files.")]
         public bool Force { get; set; }
         [Description("Filters the templates based on the template author.")]
         public string? Author { get; set; }
+        [Description("The template to invoke.")]
+        [Argument]
+        public string? TemplateName { get; set; }
+
+        public int Invoke()
+        {
+            return 0;
+        }
 
         [Description("Lists templates containing the specified template name.If no name is specified, lists all templates.")]
         public  int ListCommand(
-            [Description("Also set via Environment variable. 0 for none -> 5 for richest.")]
-            int uxLevel,
-            [Description("Terminal or Json. Terminal is default.")]
-            RenderContext renderContext,
             [Description("Columns to display")]
             string[] columns,
             [Description("Filters templates based on available types.Predefined values are 'project' and 'item'.")]
@@ -36,13 +41,13 @@ namespace DotnetCli
             [Aliases("--lang")]
             string language)
         {
-            if (Help)
+            if (Help2)
             {
-                return DisplayListHelp( uxLevel, renderContext);
+                return DisplayListHelp( UxLevel, RenderTo);
             }
-            return DisplayList(uxLevel, renderContext, columns, type, language );
+            return DisplayList(UxLevel, RenderTo, columns, type, language );
 
-            static int DisplayList(int uxLevel, RenderContext renderContext, string[] columns, TemplateType type, string language)
+            static int DisplayList(int uxLevel, RenderContext renderTo, string[] columns, TemplateType type, string language)
             {
                 var data = TemplateData.SampleData; // get real data here
                 if (type != TemplateType.Unknown)
@@ -72,7 +77,7 @@ namespace DotnetCli
                                  template.Type.ToString());
                 }
 
-                Cli.Render(table, renderContext, uxLevel, columns);
+                Cli.Render(table, renderTo, uxLevel, columns);
 
                 return 0;
             }
@@ -80,7 +85,10 @@ namespace DotnetCli
             // NOTE: This is NOT the way this will be done when we integrate with System.CommandLine. This method will not exist. 
             static int DisplayListHelp(int uxLevel, RenderContext renderContext)
             {
-                var commandSource = new ListCommandSource(null, null);
+                var rootCommandSource = CommandSource.Create<DotnetCommand>() as DotnetCommandCommandSource ;
+                var commandSource = rootCommandSource?.NewCommandCommand.ListCommand;
+                _ = commandSource ?? throw new InvalidOperationException();
+
                 var command = commandSource.Command;
                 var helpCommand = command.ToHelpCommand();
                 Cli.Render(helpCommand, renderContext, uxLevel);
@@ -97,10 +105,6 @@ namespace DotnetCli
         [Description("Lists templates containing the specified template name.If no name is specified, lists all templates.")]
         [OutputsTable("table")]
         public  int List2Command(
-            [Description("Also set via Environment variable. 0 for none -> 5 for richest.")]
-            int uxLevel, // Disapears on directive approach
-            [Description("Terminal or Json. Terminal is default.")]
-            RenderContext renderContext, // Disapears on directive approach
             [Description("Columns to display")]
             string[] columns, // Disapears on directive approach and table definition
             [Description("Filters templates based on available types.Predefined values are 'project' and 'item'.")]
@@ -129,17 +133,13 @@ namespace DotnetCli
                              template.Type.ToString());
             }
 
-            Cli.Render(table, renderContext, uxLevel, columns);
+            Cli.Render(table, RenderTo, UxLevel, columns);
 
             return 0;
         }
 
         [Description("Searches for the templates in configured remote sources.")]
         public  int Search(
-                    [Description("Also set via Environment variable. 0 for none -> 5 for richest.")]
-                    int uxLevel,
-                    [Description("Terminal or Json. Terminal is default.")]
-                    RenderContext renderContext,
                     [Description("Columns to display")]
                     string[] columns,
                     [Description("Filters templates based on available types.Predefined values are 'project' and 'item'.")]
@@ -156,11 +156,7 @@ namespace DotnetCli
 
 
         [Description("Installs a source or a template pack.")]
-        public  int InstallCommand(
-            [Description("Also set via Environment variable. 0 for none -> 5 for richest.")]
-            int uxLevel,
-            [Description("Allows the internal dotnet restore command to stop and wait for user input or action(for example to complete authentication).")]
-            bool interactive)
+        public  int InstallCommand()
         {
 
             return 0;
@@ -168,10 +164,6 @@ namespace DotnetCli
 
         [Description("Uninstalls a source or a template pack.")]
         public  int UninstallCommand(
-            [Description("Also set via Environment variable. 0 for none -> 5 for richest.")]
-            int uxLevel,
-            [Description("Terminal or Json. Terminal is default.")]
-            RenderContext renderContext,
             [Description("Columns to display")]
             string[] columns)
         {
@@ -180,17 +172,13 @@ namespace DotnetCli
         }
 
         [Description("Check the currently installed template packs for updates.")]
-        public  int CheckCommand(
-            [Description("Also set via Environment variable. 0 for none -> 5 for richest.")]
-            int uxLevel)
+        public  int CheckCommand()
         {
             return 0;
         }
 
         [Description("Check the currently installed template packs for update, and install the updates.")]
-        public  int UpdateCommand(
-            [Description("Also set via Environment variable. 0 for none -> 5 for richest.")]
-            int uxLevels)
+        public  int UpdateCommand()
         {
             return 0;
         }

@@ -8,14 +8,14 @@
     ".NETCoreApp,Version=v5.0": {
       "Common/1.0.0": {
         "dependencies": {
-          "CodeRapid.StarFruit": "0.0.1-beta0001E",
+          "CodeRapid.StarFruit": "0.0.1-beta0001F",
           "System.CommandLine": "2.0.0-beta1.20574.7"
         },
         "runtime": {
           "Common.dll": {}
         }
       },
-      "CodeRapid.StarFruit/0.0.1-beta0001E": {
+      "CodeRapid.StarFruit/0.0.1-beta0001F": {
         "dependencies": {
           "CodeRapid.StarFruit.Common": "0.0.1-beta0001A",
           "Microsoft.CodeAnalysis.CSharp": "3.9.0-2.final",
@@ -1086,12 +1086,12 @@
       "serviceable": false,
       "sha512": ""
     },
-    "CodeRapid.StarFruit/0.0.1-beta0001E": {
+    "CodeRapid.StarFruit/0.0.1-beta0001F": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-K3oUXGY6VNXQsLGhgrRjEBG1/RMe1m9igEgNcvlRoeeyXV8PHmLUWfiDSEIEF8Fv8rZqXq8b8ZtlzYggyesGfg==",
-      "path": "coderapid.starfruit/0.0.1-beta0001e",
-      "hashPath": "coderapid.starfruit.0.0.1-beta0001e.nupkg.sha512"
+      "sha512": "sha512-+qMS3t69xKLs/OqmOynm9rxP8zNgLQWoxtvpwE7RzP/BAaKrfnocDzNYHX7UP6Qu7v6XxQizseGy+g0TaDxaAA==",
+      "path": "coderapid.starfruit/0.0.1-beta0001f",
+      "hashPath": "coderapid.starfruit.0.0.1-beta0001f.nupkg.sha512"
     },
     "CodeRapid.StarFruit.Common/0.0.1-beta0001A": {
       "type": "package",

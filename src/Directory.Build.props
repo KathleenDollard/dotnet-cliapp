@@ -7,7 +7,7 @@
 	<ItemGroup>
 		<PackageReference Include="System.CommandLine" Version="2.0.0-beta1.20574.7" />
 		<!--<PackageReference Include="CodeRapid.StarFruit.Generation" Version="0.0.1-beta0001AD"/>-->
-		<PackageReference Include="CodeRapid.StarFruit" Version="0.0.1-beta0001E"/>
+		<PackageReference Include="CodeRapid.StarFruit" Version="0.0.1-beta0001F"/>
 	</ItemGroup>
 
 </Project>

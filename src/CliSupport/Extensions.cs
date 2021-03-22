@@ -19,6 +19,10 @@ namespace CliSupport
         private static HelpCommand CreateHelpCommand(Command command, HelpCommand? parent=null)
         {
             var helpCommand =  new HelpCommand(command.Name, command.Description);
+            // This is not the correct way to set CanExecute and fails on dotnet new
+            helpCommand.CanExecute = !command.Children.OfType<Command>().Any();
+            helpCommand.ParentCommandNames  = command.Parents.Select(x=>x.Name).ToList();
+
             foreach (var argument in command.Arguments)
             {
                 helpCommand.Arguments.Add(argument.Name, argument.Description);
