@@ -191,10 +191,6 @@ namespace Common
 
         public HelpCommands SubCommands { get; } = new();
 
-        private protected override string CreateDisplayName(string name)
-        {
-            throw new NotImplementedException();
-        }
     }
 
     public class HelpFootnote

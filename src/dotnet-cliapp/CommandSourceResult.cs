@@ -87,6 +87,12 @@ namespace DotnetCli
             FillInstance(newInstance);
             return newInstance;
         }
+
+        public override int Run()
+        {
+            var newInstance = CreateInstance();
+            return newInstance.Invoke();
+        }
     }
 
     public class ListCommandCommandSourceResult : NewCommandCommandSourceResult

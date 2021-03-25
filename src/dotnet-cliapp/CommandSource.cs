@@ -104,6 +104,7 @@ namespace DotnetCli
         private static Option<string> GetNameOption()
         {
             Option<string> option = new("--name");
+            option.AddAlias("-n");
             option.Description = "Name for the output being created. If not specified, the name of the output directory is used.";
             return option;
         }
@@ -111,6 +112,7 @@ namespace DotnetCli
         private static Option<string> GetOutputOption()
         {
             Option<string> option = new("--output");
+            option.AddAlias("-o");
             option.Description = "Location to place the generated output.";
             return option;
         }

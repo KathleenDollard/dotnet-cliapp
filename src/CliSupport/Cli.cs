@@ -11,18 +11,30 @@ namespace CliSupport
         private const int uxLevelEnvDefault = 4;
         private const RenderContext renderContextDefault = RenderContext.Terminal ;
 
-        public static int Render(Table table, RenderContext context = RenderContext.Unknown, int uxLevel = 0, params string[] columns)
+        public static int Render(Table table, RenderContext renderTo = RenderContext.Unknown, int uxLevel = 0, params string[] columns)
         {
-            context = context == RenderContext.Unknown ? GetRenderContext() : context;
+            renderTo = renderTo == RenderContext.Unknown ? GetRenderContext() : renderTo;
             uxLevel = uxLevel == 0 ? GetUxLevel() : uxLevel;
             AdjustColumns(table, columns);
-            return context switch
+            return renderTo switch
             {
                 RenderContext.Terminal => Terminal.Render(uxLevel, table),
                 RenderContext.Json => Json.Render(uxLevel, table),
                 _ => throw new InvalidOperationException()
             };
         }
+
+        public static string? GetFromPrompt(Selector selector, RenderContext renderTo, int uxLevel)
+        {
+            renderTo = renderTo == RenderContext.Unknown ? GetRenderContext() : renderTo;
+            uxLevel = uxLevel == 0 ? GetUxLevel() : uxLevel;
+            return renderTo switch
+            {
+                RenderContext.Terminal => Terminal.RenderPrompt(uxLevel, selector),
+                _ => throw new InvalidOperationException()
+            };
+        }
+
 
         public static int Render(Help help, RenderContext context = RenderContext.Unknown, int uxLevel = 0)
         {
@@ -54,6 +66,7 @@ namespace CliSupport
                 tableColumn.Hide = true;
             }
         }
+
 
         private static int GetUxLevel()
         {

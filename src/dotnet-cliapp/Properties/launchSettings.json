@@ -2,7 +2,7 @@
   "profiles": {
     "dotnet-cliapp": {
       "commandName": "Project",
-      "commandLineArgs": "--help2 --ux-level 5 new list"
+      "commandLineArgs": "--ux-level 4 --help2  new "
     }
   }
 }
