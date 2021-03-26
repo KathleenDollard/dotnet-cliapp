@@ -23,7 +23,7 @@ namespace DotnetCli
         : this(null, null)
         { }
 
-        public DotnetCommandCommandSource(RootCommandSource root, CommandSourceBase parent)
+        public DotnetCommandCommandSource(RootCommandSource? root, CommandSourceBase? parent)
         : base(new Command("dotnet", "Access commands in support of .NET"), parent)
         {
             if (root is not null && root != this)

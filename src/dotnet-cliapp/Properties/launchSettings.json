@@ -2,7 +2,7 @@
   "profiles": {
     "dotnet-cliapp": {
       "commandName": "Project",
-      "commandLineArgs": "--ux-level 4 --help2  new "
+      "commandLineArgs": "--ux-level 4 --render-to JSON render-to-file-name ..\\..\\..\\temp.json  new list"
     }
   }
 }

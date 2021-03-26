@@ -12,17 +12,18 @@ namespace Common
 
     public class Help
     {
-        public Help(object source)
+        public Help(object source, HelpCommand helpCommand)
         {
             Source = source;
+            RootHelpCommand = helpCommand;
         }
 
         public List<string> ParentCommands { get; } = new();
 
-        public HelpCommand RootHelpCommand { get; set; }
+        public object Source { get; }
+        public HelpCommand RootHelpCommand { get; }
         public bool IncludeUsage { get; set; }
         public string? Notes { get; set; }
-        public object Source { get; }
 
     }
 
@@ -183,7 +184,7 @@ namespace Common
             : base(name, description, aliases) { }
 
         public bool CanExecute { get; set; }
-        public IEnumerable<string> ParentCommandNames { get; set; }
+        public IEnumerable<string>? ParentCommandNames { get; set; }
 
         public HelpOptions Options { get; } = new();
 

@@ -2,6 +2,8 @@
 
 namespace DotnetCli
 {
+    // Leave these NRT warnings if this is for .NET 7 and then mark "required"
+    // External code should not need to guard against these. 
     public record TemplateData()
     {
         public string TemplateName { get; init; }

@@ -18,6 +18,12 @@ namespace DotnetCli
         public RenderContext RenderTo { get; set; }
 
         /// <summary>
+        /// File for output
+        /// </summary>
+        public string? RenderToFileName { get; set; }
+
+
+        /// <summary>
         /// Display help (new view).
         /// </summary>
         [Aliases("-h2")]
