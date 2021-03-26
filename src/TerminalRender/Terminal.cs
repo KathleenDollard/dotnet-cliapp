@@ -37,18 +37,58 @@ namespace TerminalRender
             RenderHelpPart(uxLevel, help.RootHelpCommand.Options);
             RenderHelpPart(uxLevel, help.RootHelpCommand.SubCommands);
 
-            AnsiConsole.Render(new Markup("\n"));
-            RenderSectionHead(uxLevel, null);
+            RenderhelpSectionHead(uxLevel, null);
 
             return 0;
         }
-        private static void RenderDescription(int uxLevel, HelpCommand helpCommand)
+
+        public static string? RenderPrompt(int uxLevel, Selector selector)
         {
-            RenderSectionHead(uxLevel, "Description");
-            AnsiConsole.Render(new Markup(helpCommand?.Description + Environment.NewLine + Environment.NewLine));
+            if (uxLevel == 0)
+            {
+                DisplayLegacyStyle(selector);
+                return null;
+            }
+            var prompt = new SelectionPrompt<string>().Title($"Select the {selector.ItemTypeName} you'd like to use")
+                                                      .PageSize(10);
+            var selectorItems = selector.Items.Select(x => (x.Common ? "*" : "") + x.Value);
+            if (selector.Sorted)
+            {
+                selectorItems = selectorItems.OrderBy(x => x);
+            }
+            prompt.AddChoices(selectorItems);
+            var selectedItem = AnsiConsole.Prompt(prompt);
+            if (selectedItem.StartsWith("*"))
+            {
+                selectedItem = selectedItem[1..];
+            }
+            return selectedItem;
         }
 
-        private static void RenderSectionHead(int uxLevel, string text)
+        public static int RenderPlainText(int uxLevel, string output)
+        {
+            if (uxLevel == 0)
+            {
+                DisplayLegacyStyle(output);
+                return 0;
+            }
+            Console.WriteLine(output);
+            return 0;
+        }
+
+
+        private static void DisplayLegacyStyle(object help)
+        {
+            throw new NotImplementedException();
+        }
+
+        private static void RenderDescription(int uxLevel, HelpCommand helpCommand)
+        {
+            RenderhelpSectionHead(uxLevel, "Description");
+            AnsiConsole.Render(new Markup("  " + helpCommand?.Description + Environment.NewLine + Environment.NewLine));
+        }
+
+         private static void RenderhelpSectionHead(int uxLevel, string? text)
         {
             switch (uxLevel)
             {
@@ -60,9 +100,9 @@ namespace TerminalRender
                     return;
                 case 4:
                     if (string.IsNullOrWhiteSpace(text))
-                    { AnsiConsole.Render(new Rule().Alignment(Justify.Left)); }
+                    { AnsiConsole.Render(new Rule().Alignment(Justify.Left).RuleStyle("grey dim")); }
                     else
-                    { AnsiConsole.Render(new Rule(text).Alignment(Justify.Left)); }
+                    { AnsiConsole.Render(new Rule($"[olive dim]{text}[/]").Alignment(Justify.Left).RuleStyle("grey dim")); }
                     return;
                 case 5:
                     if (string.IsNullOrWhiteSpace(text))
@@ -70,16 +110,14 @@ namespace TerminalRender
                     else
                     { AnsiConsole.Render(new Rule($"[white]{text}[/]").Alignment(Justify.Left).RuleStyle("blue dim")); }
                     return;
-                    return;
-
                 default:
                     break;
-            }
+            } 
         }
 
         private static void RenderHelpUsage(int uxLevel, HelpCommand helpCommand)
         {
-            RenderSectionHead(uxLevel, "Usage");
+            RenderhelpSectionHead(uxLevel, "Usage");
             renderHelpUsage(helpCommand);
 
             static void renderHelpUsage(HelpCommand helpCommand)
@@ -87,11 +125,11 @@ namespace TerminalRender
                 var ret = new List<string>();
                 if (helpCommand.CanExecute)
                 {
-                    AnsiConsole.Render(new Markup(BuildHelpUsageLine(helpCommand, null, true) + Environment.NewLine));
+                    AnsiConsole.Render(new Markup("  " + BuildHelpUsageLine(helpCommand, null, true) + Environment.NewLine));
                 }
                 foreach (var subCommand in helpCommand.SubCommands)
                 {
-                    AnsiConsole.Render(new Markup(BuildHelpUsageLine(helpCommand, subCommand, true) + Environment.NewLine));
+                    AnsiConsole.Render(new Markup("  " + BuildHelpUsageLine(helpCommand, subCommand, true) + Environment.NewLine));
                 }
                 AnsiConsole.Render(new Markup(Environment.NewLine));
 
@@ -100,7 +138,9 @@ namespace TerminalRender
             static string BuildHelpUsageLine(HelpCommand helpCommand, HelpCommand? subCommand, bool includeParents)
             {
                 var lowImpact = Color.Grey.ToString();
-                var ret = includeParents ? $"[{lowImpact}]{string.Join(".", helpCommand.ParentCommandNames)}[/]" : "";
+                var ret = includeParents && helpCommand.ParentCommandNames is not null
+                            ? $"[{lowImpact}]{string.Join(".", helpCommand.ParentCommandNames)}[/]" 
+                            : "";
                 ret += $" {helpCommand.Name} ";
                 ret += subCommand is null
                              ? usageFromParts(helpCommand, lowImpact)
@@ -110,7 +150,7 @@ namespace TerminalRender
                 static string usageFromParts(HelpCommand helpCommand, string lowImpact)
                 {
                     return string.Join("", helpCommand.Arguments.Select(x => $"[{lowImpact}]<[/]{x.DisplayName}[{lowImpact}]>[/] "))
-                              + (helpCommand.Options.Any() ? "[[OPTIONS]]" : "");
+                              + (helpCommand.Options.Any() ? $"[{lowImpact}][[OPTIONS]][/]" : "");
                 }
             }
         }
@@ -122,73 +162,53 @@ namespace TerminalRender
             {
                 return 0;
             }
-            RenderSectionHead(uxLevel, helpPart.PartName);
+            RenderhelpSectionHead(uxLevel, helpPart.PartName);
 
-            var anyAliases = helpPart.SelectMany(x => x.Aliases).Any(x => string.IsNullOrWhiteSpace(x));
+            var anyAliases = helpPart.SelectMany(x => x.Aliases).Any(x => !string.IsNullOrWhiteSpace(x));
             Spectre.Console.Table helpPartTable = buildHelpPartTable(helpPart, anyAliases);
             SetHelpPartTableCharacteristics(uxLevel, helpPartTable);
-            AnsiConsole.Render(helpPartTable);
+            var panel = new Spectre.Console.Panel(helpPartTable);
+            // Patrik: Apparent bug in Spectre console. This causes the columns wrapping to be off
+            //panel.NoBorder().Padding(0, 0, 0, 0);
+            //AnsiConsole.Render(panel);
+            AnsiConsole.Render(helpPartTable );
+            AnsiConsole.Render(new Markup(Environment.NewLine));
             return 0;
 
-            static Spectre.Console.Table buildHelpPartTable<T>(HelpPart<T> helpPart, bool anyAliases) where T : HelpItem
+            static Spectre.Console.Table buildHelpPartTable<TItem>(HelpPart<TItem> helpPart, bool anyAliases) 
+                where TItem : HelpItem
             {
-                var helpPartTable = new Spectre.Console.Table();
-                var nameColumn = new Spectre.Console.TableColumn("").PadRight(5);
+                var helpPartTable = new Spectre.Console.Table().HideHeaders();
+                var nameColumn = new Spectre.Console.TableColumn("");
+                    //.PadLeft(5).PadRight(2);
                 helpPartTable.AddColumn(nameColumn);
-                helpPartTable.AddColumn("");
                 if (anyAliases)
                 {
                     helpPartTable.AddColumn("");
                 }
+                helpPartTable.AddColumn("");
                 foreach (var item in helpPart.Items)
                 {
-
-                    helpPartTable.AddRow((item switch
-                    {
-                        HelpArgument arg => helpRowForArgument(arg),
-                        HelpOption opt => helpRowForOption(opt, anyAliases),
-                        HelpCommand cmd => helpRowForCommand(cmd, anyAliases),
-                        _ => throw new InvalidOperationException()
-                    }).ToArray());
+                    helpPartTable.AddRow(helpRowForItem(item, anyAliases).ToArray());
                 }
 
                 return helpPartTable;
             }
 
-            static string[] helpRowForArgument(HelpArgument argument)
-                => new string[]
+            static IEnumerable<string> helpRowForItem(HelpItem option, bool anyAliases) 
+                => anyAliases
+                    ? new List<string>
                         {
-                            argument.DisplayName,
-                            argument.Description ?? ""
-                        };
-
-            static IEnumerable<string> helpRowForOption(HelpOption option, bool anyAliases)
-            {
-                var ret = new List<string>
+                            "  " + option.DisplayName,
+                            string.Join(", ", option.Aliases),
+                            option.Description ?? "",
+                        }
+                    : new List<string>
                         {
-                            option.DisplayName,
+                            "  " + option.DisplayName,
                             option.Description ?? "",
                         };
-                if (anyAliases)
-                {
-                    ret.Add(string.Join(", ", option.Aliases));
-                }
-                return ret;
-            }
 
-            static IEnumerable<string> helpRowForCommand(HelpCommand command, bool anyAliases)
-            {
-                var ret = new List<string>
-                        {
-                            command.DisplayName,
-                            command.Description ?? "",
-                        };
-                if (anyAliases)
-                {
-                    ret.Add(string.Join(", ", command.Aliases));
-                }
-                return ret;
-            }
         }
 
 
@@ -231,21 +251,23 @@ namespace TerminalRender
                     renderTable.Expand();
                     return;
                 case 2:
-                    renderTable.Border(TableBorder.None);
+                    renderTable.Border(TableBorder.Minimal);
+                    renderTable.BorderColor(Color.Olive);
                     renderTable.Expand();
                     return;
                 case 3:
-                    renderTable.Border(TableBorder.None);
+                    renderTable.Border(TableBorder.Horizontal);
+                    renderTable.BorderColor(Color.Green);
                     renderTable.Expand();
                     return;
                 case 4:
-                    renderTable.Border(TableBorder.MinimalHeavyHead);
-                    renderTable.BorderColor(Color.Blue);
+                    renderTable.Border(TableBorder.Rounded);
+                    renderTable.BorderColor(Color.Grey);
                     renderTable.Collapse();
                     return;
                 case 5:
-                    renderTable.Border(TableBorder.MinimalHeavyHead);
-                    renderTable.BorderColor(Color.Yellow);
+                    renderTable.Border(TableBorder.Horizontal);
+                    renderTable.BorderColor(Color.Navy);
                     renderTable.Collapse();
                     return;
 
@@ -268,17 +290,17 @@ namespace TerminalRender
                     helpPartTable.Expand();
                     return;
                 case 3:
-                    helpPartTable.Border(TableBorder.None);
+                    helpPartTable.Border(TableBorder.Horizontal);
+                    helpPartTable.BorderColor(Color.Olive);
                     helpPartTable.Expand();
                     return;
                 case 4:
                     helpPartTable.Border(TableBorder.None);
-                    helpPartTable.BorderColor(Color.Blue);
                     helpPartTable.Collapse();
                     return;
                 case 5:
-                    helpPartTable.Border(TableBorder.MinimalHeavyHead);
-                    helpPartTable.BorderColor(Color.Yellow);
+                    helpPartTable.Border(TableBorder.Horizontal);
+                    helpPartTable.BorderColor(Color.Olive);
                     helpPartTable.Collapse();
                     return;
 
