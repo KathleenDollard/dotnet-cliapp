@@ -4,6 +4,7 @@ C:\Users\kdollard\source\repos\dotnet-cliapp\dotnet-cliapp\src\TerminalRender\bi
 C:\Users\kdollard\source\repos\dotnet-cliapp\dotnet-cliapp\src\TerminalRender\bin\Debug\net5.0\TerminalRender.pdb
 C:\Users\kdollard\source\repos\dotnet-cliapp\dotnet-cliapp\src\TerminalRender\bin\Debug\net5.0\Common.dll
 C:\Users\kdollard\source\repos\dotnet-cliapp\dotnet-cliapp\src\TerminalRender\bin\Debug\net5.0\Common.pdb
+C:\Users\kdollard\source\repos\dotnet-cliapp\dotnet-cliapp\src\TerminalRender\obj\Debug\net5.0\TerminalRender.csproj.AssemblyReference.cache
 C:\Users\kdollard\source\repos\dotnet-cliapp\dotnet-cliapp\src\TerminalRender\obj\Debug\net5.0\TerminalRender.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\kdollard\source\repos\dotnet-cliapp\dotnet-cliapp\src\TerminalRender\obj\Debug\net5.0\TerminalRender.AssemblyInfoInputs.cache
 C:\Users\kdollard\source\repos\dotnet-cliapp\dotnet-cliapp\src\TerminalRender\obj\Debug\net5.0\TerminalRender.AssemblyInfo.cs
@@ -12,4 +13,3 @@ C:\Users\kdollard\source\repos\dotnet-cliapp\dotnet-cliapp\src\TerminalRender\ob
 C:\Users\kdollard\source\repos\dotnet-cliapp\dotnet-cliapp\src\TerminalRender\obj\Debug\net5.0\TerminalRender.dll
 C:\Users\kdollard\source\repos\dotnet-cliapp\dotnet-cliapp\src\TerminalRender\obj\Debug\net5.0\ref\TerminalRender.dll
 C:\Users\kdollard\source\repos\dotnet-cliapp\dotnet-cliapp\src\TerminalRender\obj\Debug\net5.0\TerminalRender.pdb
-C:\Users\kdollard\source\repos\dotnet-cliapp\dotnet-cliapp\src\TerminalRender\obj\Debug\net5.0\TerminalRender.csproj.AssemblyReference.cache

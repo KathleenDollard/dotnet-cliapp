@@ -8,9 +8,27 @@ namespace TerminalRender
 {
     public static class Terminal
     {
+        // These are the intended use of these values, although beyond the prototype
+        // there will probably be default configurations with separate dials for 
+        // interactivity, fancy/pretty, color, and possibly accessibility.
+        // The library removes fancy stuff when outputting to a file (by default).
+        private const int CISoNoFancyInteraction = 0;
+        private const int HumanNoFancyStuff = 1;
+        private const int TinyBitOfFancyStuff = 2;
+        private const int MinorFancyStuff = 3;
+        private const int BestExperienceLevel = 4;
+        private const int ExtraFancyStuff = 5;
+        // Create your own space with an integer here. Then extend the switch in  methods:
+        // * RenderhelpSectionHead
+        // * SetTableCharacteristics
+        // * SetHelpPartTableCharacteristics
+        // * RenderPrompt  // not yet used
+        // * RenderDescription // not yet used
+        // private const int GitHubHandle = n;
+
         public static int Render(int uxLevel, Common.Table table)
         {
-            if (uxLevel == 0)
+            if (uxLevel == CISoNoFancyInteraction)
             {
                 DisplayLegacyStyle(table);
                 return 0;
@@ -26,7 +44,7 @@ namespace TerminalRender
         public static int Render(int uxLevel, Help help)
         {
             AnsiConsole.Render(new Markup("\n"));
-            if (uxLevel == 0)
+            if (uxLevel == CISoNoFancyInteraction)
             {
                 DisplayLegacyStyle(help);
                 return 0;
@@ -44,7 +62,7 @@ namespace TerminalRender
 
         public static string? RenderPrompt(int uxLevel, Selector selector)
         {
-            if (uxLevel == 0)
+            if (uxLevel == CISoNoFancyInteraction)
             {
                 DisplayLegacyStyle(selector);
                 return null;
@@ -80,19 +98,19 @@ namespace TerminalRender
         {
             switch (uxLevel)
             {
-                case 0: return;
-                case 1:
-                case 2:
-                case 3:
+                case CISoNoFancyInteraction: return;
+                case HumanNoFancyStuff:
+                case TinyBitOfFancyStuff:
+                case MinorFancyStuff:
                     AnsiConsole.Render(new Markup(text + ":"));
                     return;
-                case 4:
+                case BestExperienceLevel:
                     if (string.IsNullOrWhiteSpace(text))
                     { AnsiConsole.Render(new Rule().Alignment(Justify.Left).RuleStyle("grey dim")); }
                     else
                     { AnsiConsole.Render(new Rule($"[olive dim]{text}[/]").Alignment(Justify.Left).RuleStyle("grey dim")); }
                     return;
-                case 5:
+                case ExtraFancyStuff:
                     if (string.IsNullOrWhiteSpace(text))
                     { AnsiConsole.Render(new Rule().Alignment(Justify.Left).RuleStyle("blue dim")); }
                     else
@@ -196,7 +214,6 @@ namespace TerminalRender
 
         }
 
-
         private static void BuildTable(Spectre.Console.Table renderTable, Common.Table table)
         {
             foreach (var column in table.Columns)
@@ -234,27 +251,27 @@ namespace TerminalRender
         {
             switch (uxLevel)
             {
-                case 0: return;
-                case 1:
+                case CISoNoFancyInteraction: return;
+                case HumanNoFancyStuff:
                     renderTable.Border(TableBorder.None);
                     renderTable.Expand();
                     return;
-                case 2:
+                case TinyBitOfFancyStuff:
                     renderTable.Border(TableBorder.Minimal);
                     renderTable.BorderColor(Color.Olive);
                     renderTable.Expand();
                     return;
-                case 3:
+                case MinorFancyStuff:
                     renderTable.Border(TableBorder.Horizontal);
                     renderTable.BorderColor(Color.Green);
                     renderTable.Expand();
                     return;
-                case 4:
+                case BestExperienceLevel:
                     renderTable.Border(TableBorder.Rounded);
                     renderTable.BorderColor(Color.Grey);
                     renderTable.Collapse();
                     return;
-                case 5:
+                case ExtraFancyStuff:
                     renderTable.Border(TableBorder.Horizontal);
                     renderTable.BorderColor(Color.Navy);
                     renderTable.Collapse();
@@ -269,25 +286,25 @@ namespace TerminalRender
         {
             switch (uxLevel)
             {
-                case 0: return;
-                case 1:
+                case CISoNoFancyInteraction: return;
+                case HumanNoFancyStuff:
                     helpPartTable.Border(TableBorder.None);
                     helpPartTable.Expand();
                     return;
-                case 2:
+                case TinyBitOfFancyStuff:
                     helpPartTable.Border(TableBorder.None);
                     helpPartTable.Expand();
                     return;
-                case 3:
+                case MinorFancyStuff:
                     helpPartTable.Border(TableBorder.Horizontal);
                     helpPartTable.BorderColor(Color.Olive);
                     helpPartTable.Expand();
                     return;
-                case 4:
+                case BestExperienceLevel:
                     helpPartTable.Border(TableBorder.None);
                     helpPartTable.Collapse();
                     return;
-                case 5:
+                case ExtraFancyStuff:
                     helpPartTable.Border(TableBorder.Horizontal);
                     helpPartTable.BorderColor(Color.Olive);
                     helpPartTable.Collapse();
@@ -302,25 +319,25 @@ namespace TerminalRender
         {
             switch (uxLevel)
             {
-                case 0: return;
-                case 1:
+                case CISoNoFancyInteraction: return;
+                case HumanNoFancyStuff:
                     helpUsageTable.Border(TableBorder.None);
                     helpUsageTable.Expand();
                     return;
-                case 2:
+                case TinyBitOfFancyStuff:
                     helpUsageTable.Border(TableBorder.None);
                     helpUsageTable.Expand();
                     return;
-                case 3:
+                case MinorFancyStuff:
                     helpUsageTable.Border(TableBorder.None);
                     helpUsageTable.Expand();
                     return;
-                case 4:
+                case BestExperienceLevel:
                     helpUsageTable.Border(TableBorder.None);
                     helpUsageTable.BorderColor(Color.Blue);
                     helpUsageTable.Collapse();
                     return;
-                case 5:
+                case ExtraFancyStuff:
                     helpUsageTable.Border(TableBorder.None);
                     helpUsageTable.BorderColor(Color.Yellow);
                     helpUsageTable.Collapse();

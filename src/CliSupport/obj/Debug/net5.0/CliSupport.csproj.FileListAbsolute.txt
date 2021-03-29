@@ -8,6 +8,7 @@ C:\Users\kdollard\source\repos\dotnet-cliapp\dotnet-cliapp\src\CliSupport\bin\De
 C:\Users\kdollard\source\repos\dotnet-cliapp\dotnet-cliapp\src\CliSupport\bin\Debug\net5.0\Common.pdb
 C:\Users\kdollard\source\repos\dotnet-cliapp\dotnet-cliapp\src\CliSupport\bin\Debug\net5.0\JsonRender.pdb
 C:\Users\kdollard\source\repos\dotnet-cliapp\dotnet-cliapp\src\CliSupport\bin\Debug\net5.0\TerminalRender.pdb
+C:\Users\kdollard\source\repos\dotnet-cliapp\dotnet-cliapp\src\CliSupport\obj\Debug\net5.0\CliSupport.csproj.AssemblyReference.cache
 C:\Users\kdollard\source\repos\dotnet-cliapp\dotnet-cliapp\src\CliSupport\obj\Debug\net5.0\CliSupport.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\kdollard\source\repos\dotnet-cliapp\dotnet-cliapp\src\CliSupport\obj\Debug\net5.0\CliSupport.AssemblyInfoInputs.cache
 C:\Users\kdollard\source\repos\dotnet-cliapp\dotnet-cliapp\src\CliSupport\obj\Debug\net5.0\CliSupport.AssemblyInfo.cs
@@ -16,4 +17,3 @@ C:\Users\kdollard\source\repos\dotnet-cliapp\dotnet-cliapp\src\CliSupport\obj\De
 C:\Users\kdollard\source\repos\dotnet-cliapp\dotnet-cliapp\src\CliSupport\obj\Debug\net5.0\CliSupport.dll
 C:\Users\kdollard\source\repos\dotnet-cliapp\dotnet-cliapp\src\CliSupport\obj\Debug\net5.0\ref\CliSupport.dll
 C:\Users\kdollard\source\repos\dotnet-cliapp\dotnet-cliapp\src\CliSupport\obj\Debug\net5.0\CliSupport.pdb
-C:\Users\kdollard\source\repos\dotnet-cliapp\dotnet-cliapp\src\CliSupport\obj\Debug\net5.0\CliSupport.csproj.AssemblyReference.cache
