@@ -1,6 +1,6 @@
 # DotnetCliApp
 
-This is me playing around with some ideas combining StarFruit and Spectre.Console. It is a prototype using an interim semantic model.
+This repo plays around with some ideas combining StarFruit and Spectre.Console. It is a prototype using an interim semantic model.
 
 ## Building
 
@@ -20,7 +20,7 @@ If you would like to leave `--ux-level` out of your demos, set the environment v
 .\dotnet-cliapp.exe --ux-level 4 new list
 ```
 
-To see a different layout (see how to define your own below):
+To use a different layout (see how to define your own below):
 
 ```C#
 .\dotnet-cliapp.exe --ux-level 5 new list
@@ -66,7 +66,7 @@ If want to share your ideas, just use a constant and associate your github handl
 
 The CLI for this prototype is defined with the StarFruit app model which is a prototype for easy access to System.CommandLine. Check it out in the DotnetCommand.cs and NewCommand.cs classes in dotnet-cliapp. 
 
-**Note: the intent for this is to be source generation, however, that is buggy at present, so I am explicitly creating the files that shoudl be generated. Because of this, any changes you make will not change the CLI.
+**Note: the intent for this is to be source generation, however, that is buggy at present, so I am explicitly creating the files that should be generated. Because of this, any changes you make will not change the CLI.
 
 ## Explanation of project layout
 
@@ -95,3 +95,20 @@ Contains the code to render to JSON
 
 Contains the code to render to the terminal.
 
+## Other ideas
+
+### Redesign configuration
+
+Current approach is oversimplified such that just about everyone hates it. 
+
+Perhaps appearance entry specific - such as configuration for tables as opposed to everything
+
+Interactivity seems to have broadest range from none/really important input to scrolling tables/selections.
+
+### Scrolling tables (with a prompt)
+
+### Other common features across .NET CLI and/or CLI Apps
+
+Suggestions (when we can suggest what you probably want to type)
+
+### Prompts for common template parameters
