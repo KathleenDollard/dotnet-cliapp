@@ -113,3 +113,10 @@ C:\Users\kdollard\source\repos\dotnet-cliapp\dotnet-cliapp\artifacts\Debug\net5.
 C:\Users\kdollard\source\repos\dotnet-cliapp\dotnet-cliapp\artifacts\Debug\net5.0\dotnet-cliapp.dll
 C:\Users\kdollard\source\repos\dotnet-cliapp\dotnet-cliapp\artifacts\Debug\net5.0\ref\dotnet-cliapp.dll
 C:\Users\kdollard\source\repos\dotnet-cliapp\dotnet-cliapp\artifacts\Debug\net5.0\dotnet-cliapp.pdb
+C:\Users\kdollard\source\repos\dotnet-cliapp\artifacts\Debug\net5.0\dotnet-cliapp.exe
+C:\Users\kdollard\source\repos\dotnet-cliapp\artifacts\Debug\net5.0\dotnet-cliapp.deps.json
+C:\Users\kdollard\source\repos\dotnet-cliapp\artifacts\Debug\net5.0\dotnet-cliapp.runtimeconfig.json
+C:\Users\kdollard\source\repos\dotnet-cliapp\artifacts\Debug\net5.0\dotnet-cliapp.runtimeconfig.dev.json
+C:\Users\kdollard\source\repos\dotnet-cliapp\artifacts\Debug\net5.0\dotnet-cliapp.dll
+C:\Users\kdollard\source\repos\dotnet-cliapp\artifacts\Debug\net5.0\ref\dotnet-cliapp.dll
+C:\Users\kdollard\source\repos\dotnet-cliapp\artifacts\Debug\net5.0\dotnet-cliapp.pdb
