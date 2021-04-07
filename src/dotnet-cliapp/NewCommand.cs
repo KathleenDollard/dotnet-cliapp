@@ -1,9 +1,7 @@
-﻿
-using CliSupport;
+﻿using CliSupport;
 using Common;
 using StarFruit2;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace DotnetCli
@@ -54,7 +52,7 @@ namespace DotnetCli
             {
                 var rootCommandSource = CommandSource.Create<DotnetCommand>() as DotnetCommandCommandSource;
                 var commandSource = rootCommandSource?.NewCommandCommand;
-                return DisplayListHelp(UxLevel, RenderTo, commandSource,true);
+                return DisplayListHelp(UxLevel, RenderTo, RenderToFileName, commandSource, true);
             }
             var commonTemplates = "console, classlib";
             var data = TemplateData.SampleData; // get real data here
@@ -88,11 +86,11 @@ namespace DotnetCli
             {
                 var rootCommandSource = CommandSource.Create<DotnetCommand>() as DotnetCommandCommandSource;
                 var commandSource = rootCommandSource?.NewCommandCommand.ListCommand;
-                return DisplayListHelp(UxLevel, RenderTo, commandSource);
+                return DisplayListHelp(UxLevel, RenderTo, RenderToFileName, commandSource);
             }
-            return DisplayList(UxLevel, RenderTo, columns, type, language);
+            return DisplayList(UxLevel, RenderTo, RenderToFileName, columns, type, language);
 
-            static int DisplayList(int uxLevel, RenderContext renderTo, string[] columns, TemplateType type, string language)
+            static int DisplayList(int uxLevel, RenderContext renderTo, string? renderToFileName, string[] columns, TemplateType type, string language)
             {
                 var data = TemplateData.SampleData; // get real data here
                 if (type != TemplateType.Unknown)
@@ -118,23 +116,23 @@ namespace DotnetCli
                                  template.Tags, template.Author, template.Type.ToString());
                 }
 
-                Cli.Render(table, renderTo, uxLevel, columns);
+                Cli.Render(table, renderTo, uxLevel, outputFile: renderToFileName, columns: columns);
 
                 return 0;
             }
         }
 
-            // NOTE: This is NOT the way this will be done when we integrate with System.CommandLine Help. This method will not exist. 
-           private  static int DisplayListHelp(int uxLevel, RenderContext renderContext, CommandSourceBase? commandSource, bool canExecute=false)
-            {
-                _ = commandSource ?? throw new InvalidOperationException();
+        // NOTE: This is NOT the way this will be done when we integrate with System.CommandLine Help. This method will not exist. 
+        private static int DisplayListHelp(int uxLevel, RenderContext renderContext, string? renderToFile, CommandSourceBase? commandSource, bool canExecute = false)
+        {
+            _ = commandSource ?? throw new InvalidOperationException();
 
-                var command = commandSource.Command;
-                var helpCommand = command.ToHelpCommand(canExecute);
-                Cli.Render(helpCommand, renderContext, uxLevel);
+            var command = commandSource.Command;
+            var helpCommand = command.ToHelpCommand(canExecute);
+            Cli.Render(helpCommand, renderContext, uxLevel, outputFile: renderToFile);
 
-                return 0;
-            }
+            return 0;
+        }
 
         /// <summary>
         /// Lists templates containing the specified template name.If no name is specified, lists all templates.
@@ -179,7 +177,7 @@ namespace DotnetCli
                              template.Type.ToString());
             }
 
-            Cli.Render(table, RenderTo, UxLevel, columns);
+            Cli.Render(table, RenderTo, UxLevel, outputFile: RenderToFileName, columns: columns);
 
             return 0;
         }

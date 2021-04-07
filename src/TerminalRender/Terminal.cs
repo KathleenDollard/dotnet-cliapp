@@ -65,6 +65,18 @@ namespace TerminalRender
             return selectedItem;
         }
 
+        public static int RenderPlainText(int uxLevel, string output)
+        {
+            if (uxLevel == 0)
+            {
+                DisplayLegacyStyle(output);
+                return 0;
+            }
+            Console.WriteLine(output);
+            return 0;
+        }
+
+
         private static void DisplayLegacyStyle(object help)
         {
             throw new NotImplementedException();
@@ -76,7 +88,7 @@ namespace TerminalRender
             AnsiConsole.Render(new Markup("  " + helpCommand?.Description + Environment.NewLine + Environment.NewLine));
         }
 
-        private static void RenderhelpSectionHead(int uxLevel, string text)
+         private static void RenderhelpSectionHead(int uxLevel, string? text)
         {
             switch (uxLevel)
             {
@@ -126,7 +138,9 @@ namespace TerminalRender
             static string BuildHelpUsageLine(HelpCommand helpCommand, HelpCommand? subCommand, bool includeParents)
             {
                 var lowImpact = Color.Grey.ToString();
-                var ret = includeParents ? $"[{lowImpact}]{string.Join(".", helpCommand.ParentCommandNames)}[/]" : "";
+                var ret = includeParents && helpCommand.ParentCommandNames is not null
+                            ? $"[{lowImpact}]{string.Join(".", helpCommand.ParentCommandNames)}[/]" 
+                            : "";
                 ret += $" {helpCommand.Name} ";
                 ret += subCommand is null
                              ? usageFromParts(helpCommand, lowImpact)
@@ -161,7 +175,8 @@ namespace TerminalRender
             AnsiConsole.Render(new Markup(Environment.NewLine));
             return 0;
 
-            static Spectre.Console.Table buildHelpPartTable<T>(HelpPart<T> helpPart, bool anyAliases) where T : HelpItem
+            static Spectre.Console.Table buildHelpPartTable<TItem>(HelpPart<TItem> helpPart, bool anyAliases) 
+                where TItem : HelpItem
             {
                 var helpPartTable = new Spectre.Console.Table().HideHeaders();
                 var nameColumn = new Spectre.Console.TableColumn("");
@@ -224,10 +239,6 @@ namespace TerminalRender
 
                 renderTable.AddRow(new Spectre.Console.TableRow(values));
             }
-        }
-
-        private static void SetSelectionPromptCharacterics(Spectre.Console.SelectionPrompt<string> prompt, int uxLevel)
-        {
         }
 
         private static void SetTableCharacteristics(Spectre.Console.Table renderTable, int uxLevel)

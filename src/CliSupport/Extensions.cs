@@ -6,19 +6,16 @@ namespace CliSupport
 {
     public static class Extensions
     {
-        public static Help ToHelpCommand(this Command command, bool canExecute = false)
-        {
-            var help = new Help(command);
-            help.RootHelpCommand = CreateHelpCommand(command);
-            help.RootHelpCommand.CanExecute = canExecute;
+        public static Help ToHelpCommand(this Command command, bool canExecute = false) 
+            => new(command, CreateHelpCommand(command, canExecute: canExecute));
 
-            return help;
-        }
-
-        private static HelpCommand CreateHelpCommand(Command command, HelpCommand? parent = null)
+        private static HelpCommand CreateHelpCommand(Command command, HelpCommand? parent = null, bool canExecute = false)
         {
-            var helpCommand = new HelpCommand(command.Name, command.Description);
-            helpCommand.ParentCommandNames = command.Parents.Select(x => x.Name).ToList();
+            var helpCommand = new HelpCommand(command.Name, command.Description)
+            {
+                ParentCommandNames = command.Parents.Select(x => x.Name).ToList(),
+                CanExecute = canExecute
+            };
 
             foreach (var argument in command.Arguments)
             {

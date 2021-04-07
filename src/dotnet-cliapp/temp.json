@@ -1,0 +1,257 @@
+{
+   "data" : [
+{
+      "Name":"Console Application", 
+      "Short Name":"console", 
+      "Language":"[[C#]], F#, VB", 
+      "Tags":"Common/Console", 
+      "Author":"Microsoft", 
+      "Type":"Project"
+   },{
+      "Name":"Class library", 
+      "Short Name":"classlib", 
+      "Language":"[[C#]], F#, VB", 
+      "Tags":"Common/Library", 
+      "Author":"Microsoft", 
+      "Type":"Project"
+   },{
+      "Name":"WPF Application", 
+      "Short Name":"wpf", 
+      "Language":"[[C#]], VB", 
+      "Tags":"Common/WPF", 
+      "Author":"Microsoft", 
+      "Type":"Project"
+   },{
+      "Name":"WPF Class library", 
+      "Short Name":"wpflib", 
+      "Language":"[[C#]], VB", 
+      "Tags":"Common/WPF", 
+      "Author":"Microsoft", 
+      "Type":"Project"
+   },{
+      "Name":"WPF Custom Control Library", 
+      "Short Name":"wpfcustomcontrollib", 
+      "Language":"[[C#]], VB", 
+      "Tags":"Common/WPF", 
+      "Author":"Microsoft", 
+      "Type":"Project"
+   },{
+      "Name":"WPF User Control Library", 
+      "Short Name":"wpfusercontrollib", 
+      "Language":"[[C#]], VB", 
+      "Tags":"Common/WPF", 
+      "Author":"Microsoft", 
+      "Type":"Project"
+   },{
+      "Name":"Windows Forms App", 
+      "Short Name":"winforms", 
+      "Language":"[[C#]], VB", 
+      "Tags":"Common/WinForms", 
+      "Author":"Microsoft", 
+      "Type":"Project"
+   },{
+      "Name":"Windows Forms Control Library", 
+      "Short Name":"winformscontrollib", 
+      "Language":"[[C#]], VB", 
+      "Tags":"Common/WinForms", 
+      "Author":"Microsoft", 
+      "Type":"Project"
+   },{
+      "Name":"Windows Forms Class Library", 
+      "Short Name":"winformslib", 
+      "Language":"[[C#]], VB", 
+      "Tags":"Common/WinForms", 
+      "Author":"Microsoft", 
+      "Type":"Project"
+   },{
+      "Name":"Worker Service", 
+      "Short Name":"worker", 
+      "Language":"[[C#]], F#", 
+      "Tags":"Common/Worker/Web", 
+      "Author":"Microsoft", 
+      "Type":"Project"
+   },{
+      "Name":"Unit Test Project", 
+      "Short Name":"mstest", 
+      "Language":"[[C#]], F#, VB", 
+      "Tags":"Test/MSTest", 
+      "Author":"Microsoft", 
+      "Type":"Project"
+   },{
+      "Name":"NUnit 3 Test Project", 
+      "Short Name":"nunit", 
+      "Language":"[[C#]], F#, VB", 
+      "Tags":"Test/NUnit", 
+      "Author":"Aleksei Kharlov aka halex2005 (codeofclimber.ru)", 
+      "Type":"Project"
+   },{
+      "Name":"NUnit 3 Test Item", 
+      "Short Name":"nunit-test", 
+      "Language":"[[C#]], F#, VB", 
+      "Tags":"Test/NUnit", 
+      "Author":"Aleksei Kharlov aka halex2005 (codeofclimber.ru)", 
+      "Type":"Item"
+   },{
+      "Name":"xUnit Test Project", 
+      "Short Name":"xunit", 
+      "Language":"[[C#]], F#, VB", 
+      "Tags":"Test/xUnit", 
+      "Author":"Microsoft", 
+      "Type":"Project"
+   },{
+      "Name":"Razor Component", 
+      "Short Name":"razorcomponent", 
+      "Language":"[[C#]]", 
+      "Tags":"Web/ASP.NET", 
+      "Author":"Microsoft", 
+      "Type":"Item"
+   },{
+      "Name":"Razor Page", 
+      "Short Name":"page", 
+      "Language":"[[C#]]", 
+      "Tags":"Web/ASP.NET", 
+      "Author":"Microsoft", 
+      "Type":"Item"
+   },{
+      "Name":"MVC ViewImports", 
+      "Short Name":"viewimports", 
+      "Language":"[[C#]]", 
+      "Tags":"Web/ASP.NET", 
+      "Author":"Microsoft", 
+      "Type":"Item"
+   },{
+      "Name":"MVC ViewStart", 
+      "Short Name":"viewstart", 
+      "Language":"[[C#]]", 
+      "Tags":"Web/ASP.NET", 
+      "Author":"Microsoft", 
+      "Type":"Item"
+   },{
+      "Name":"Blazor Server App", 
+      "Short Name":"blazorserver", 
+      "Language":"[[C#]]", 
+      "Tags":"Web/Blazor", 
+      "Author":"Microsoft", 
+      "Type":"Project"
+   },{
+      "Name":"Blazor WebAssembly App", 
+      "Short Name":"blazorwasm", 
+      "Language":"[[C#]]", 
+      "Tags":"Web/Blazor/WebAssembly", 
+      "Author":"Microsoft", 
+      "Type":"Project"
+   },{
+      "Name":"ASP.NET Core Empty", 
+      "Short Name":"web", 
+      "Language":"[[C#]], F#", 
+      "Tags":"Web/Empty", 
+      "Author":"Microsoft", 
+      "Type":"Project"
+   },{
+      "Name":"ASP.NET Core Web App (Model-View-Controller)", 
+      "Short Name":"mvc", 
+      "Language":"[[C#]], F#", 
+      "Tags":"Web/MVC", 
+      "Author":"Microsoft", 
+      "Type":"Project"
+   },{
+      "Name":"ASP.NET Core Web App", 
+      "Short Name":"webapp", 
+      "Language":"[[C#]]", 
+      "Tags":"Web/MVC/Razor Pages", 
+      "Author":"Microsoft", 
+      "Type":"Project"
+   },{
+      "Name":"ASP.NET Core with Angular", 
+      "Short Name":"angular", 
+      "Language":"[[C#]]", 
+      "Tags":"Web/MVC/SPA", 
+      "Author":"Microsoft", 
+      "Type":"Project"
+   },{
+      "Name":"ASP.NET Core with React.js", 
+      "Short Name":"react", 
+      "Language":"[[C#]]", 
+      "Tags":"Web/MVC/SPA", 
+      "Author":"Microsoft", 
+      "Type":"Project"
+   },{
+      "Name":"ASP.NET Core with React.js and Redux", 
+      "Short Name":"reactredux", 
+      "Language":"[[C#]]", 
+      "Tags":"Web/MVC/SPA", 
+      "Author":"Microsoft", 
+      "Type":"Project"
+   },{
+      "Name":"Razor Class Library", 
+      "Short Name":"razorclasslib", 
+      "Language":"[[C#]]", 
+      "Tags":"Web/Razor/Library", 
+      "Author":"Microsoft", 
+      "Type":"Project"
+   },{
+      "Name":"ASP.NET Core Web API", 
+      "Short Name":"webapi", 
+      "Language":"[[C#]], F#", 
+      "Tags":"Web/WebAPI", 
+      "Author":"Microsoft", 
+      "Type":"Project"
+   },{
+      "Name":"ASP.NET Core gRPC Service", 
+      "Short Name":"grpc", 
+      "Language":"[[C#]]", 
+      "Tags":"Web/gRPC", 
+      "Author":"Microsoft", 
+      "Type":"Project"
+   },{
+      "Name":"dotnet gitignore file", 
+      "Short Name":"gitignore", 
+      "Language":"", 
+      "Tags":"Config", 
+      "Author":"Microsoft", 
+      "Type":"Item"
+   },{
+      "Name":"global.json file", 
+      "Short Name":"globaljson", 
+      "Language":"", 
+      "Tags":"Config", 
+      "Author":"Microsoft", 
+      "Type":"Item"
+   },{
+      "Name":"NuGet Config", 
+      "Short Name":"nugetconfig", 
+      "Language":"", 
+      "Tags":"Config", 
+      "Author":"Microsoft", 
+      "Type":"Item"
+   },{
+      "Name":"Dotnet local tool manifest file", 
+      "Short Name":"tool-manifest", 
+      "Language":"", 
+      "Tags":"Config", 
+      "Author":"Microsoft", 
+      "Type":"Item"
+   },{
+      "Name":"Web Config", 
+      "Short Name":"webconfig", 
+      "Language":"", 
+      "Tags":"Config", 
+      "Author":"Microsoft", 
+      "Type":"Item"
+   },{
+      "Name":"Solution File", 
+      "Short Name":"sln", 
+      "Language":"", 
+      "Tags":"Solution", 
+      "Author":"Microsoft", 
+      "Type":"Solution"
+   },{
+      "Name":"Protocol Buffer File", 
+      "Short Name":"proto", 
+      "Language":"", 
+      "Tags":"Web/gRPC", 
+      "Author":"Microsoft", 
+      "Type":"Item"
+   }
+   ]
+}
